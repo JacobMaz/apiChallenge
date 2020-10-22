@@ -1,43 +1,42 @@
-let baseURl = 'https://pokeapi.co/api/v2/pokemon/';
+let baseURL = 'https://pokeapi.co/api/v2/pokemon/';
 pokemonList = document.querySelector('ul');
 
-fetch('https://pokeapi.co/api/v2/pokemon')
+for(p = 1; p <= 9; p++){
+    // console.log(p)
+fetch(`${baseURL}${p}`)
 .then(function(response){
     return response.json();
 })
 .then(function(json){
-    for(p = 0; p <= 8; p++){
-        // console.log(json.results[p]);
-        let name = json.results[p].name;
-        let pokeName = name.charAt(0).toUpperCase() + name.slice(1);
-        // console.log(pokeName)
-        let pokemon = document.createElement('li');
-        let pokeIdNum = document.createElement('p');
-        let pokeType = document.createElement('p');
-        pokeType.className = 'pType';
-        pokeIdNum.className = 'pId';
-        pokemon.innerHTML = pokeName;
-        pokemonList.appendChild(pokemon);
-        pokemon.appendChild(pokeIdNum);
-        pokemon.appendChild(pokeType);
-        // for(t = 1; t <= 9; t++)
-        // console.log
-        // console.log(p)
-        let i = p + 1;
-        // console.log(t)
-        if(i === p + 1){
-            fetch(`${baseURl}${i}`)
-            .then(function(pokeIndex){
-                return pokeIndex.json()
-            })
-            .then(function(json){
-                // console.log(json.id);
-                let mainType = json.types[0].type.name;
-                let pIdNum = json.id;
-                pokeType.innerText = `Main Type: ${mainType.toUpperCase()}`;
-                pokeIdNum.innerText = `ID: ${pIdNum}`;
-            })
-        } 
-    }
+    console.log(json);
+    let pokeIdNum = json.id
+    let pokeName = json.name;
+    let pokeType = json.types[0].type.name;
+
+    // let pokeRPSopt = json.name;
+
+    let pokemonName = pokeName.charAt(0).toUpperCase()+pokeName.slice(1);
+
+    let pokemon = document.createElement('li');
+    let pokemonType = document.createElement('p');
+    let pokemonIdNum = document.createElement('p');
+
+    let pokemonRPS = document.getElementById('pokemonRPS')
+
+    let pokemonRPSopt = document.createElement('option');
+    let iChoosYou = document.createElement('input')
+
+    pokemon.innerText = pokemonName;
+    pokemonType.innerText = `Main Type: ${pokeType.toUpperCase()}`;
+    pokemonIdNum.innerText = `ID: #${pokeIdNum}`;
     
+    pokemonRPSopt.innerText = `${pokeName.toUpperCase()}!`;
+
+    pokemonList.appendChild(pokemon);
+    pokemon.appendChild(pokemonIdNum);
+    pokemon.appendChild(pokemonType);
+
+    pokemonRPS.appendChild(pokemonRPSopt);
+
 })
+}
