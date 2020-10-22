@@ -52,41 +52,114 @@ fetch(`${baseURL}${p}`)
 })
 }
 
-const randomPokeBtn = document.getElementById('iChooseYou');
+const pokeBattleBtn = document.getElementById('iChooseYou');
 const randomPoke = document.getElementById('randomPokemon');
+const choisePoke = document.getElementById('choisePokemon')
 
-randomPokeBtn.addEventListener('click', randomPokemon);
+pokeBattleBtn.addEventListener('click', pokemonBattle);
 
-function randomPokemon(e) {
-    while (randomPoke.firstChild){
+function pokemonBattle(e) {
+    while (choisePoke.firstChild){
+        choisePoke.removeChild(choisePoke.firstChild);
+    } while (randomPoke.firstChild){
         randomPoke.removeChild(randomPoke.firstChild);
     }
+
+    let pokemonChoise = document.getElementById('pokemonChoise');
+    let pChoise = pokemonChoise.options[pokemonChoise.selectedIndex].text;
+
+    let c;
+       
+    if(pChoise === 'BULBASAUR!'){
+        c = 1;
+        // console.log(c);
+    } else if(pChoise === 'IVYSAUR!'){
+        c = 2;
+        // console.log(c);
+    } else if(pChoise === 'VENUSAUR!'){
+        c = 3;
+        // console.log(c);
+    } else if(pChoise === 'CHARMANDER!'){
+        c = 4;
+        // console.log(c);
+    } else if(pChoise === 'CHARMELEON!'){
+        c = 5;
+        // console.log(c);
+    } else if(pChoise === 'CHARIZARD!'){
+        c = 6;
+        // console.log(c);
+    } else if(pChoise === 'SQUIRTLE!'){
+        c = 7;
+        // console.log(c);
+    } else if(pChoise === 'WARTORTLE!'){
+        c = 8;
+        // console.log(c);
+    } else if(pChoise === 'BLASTOISE!'){
+        c = 9;
+        // console.log(c);
+    } else {
+        console.log('RUN AWAY!!!');
+    }
+    // console.log(c)
+
+    fetch(`${baseURL}${c}`)
+    .then(function(choiseResults){
+        return choiseResults.json();
+    })
+    .then(function(choiseJson){
+        // console.log(choiseJson.sprites.back_default);
+        
+        let choiseIcon = document.createElement('img');
+        let choiseName = document.createElement('h2');
+        let choiseType = document.createElement('p');
+
+        let cType = choiseJson.types[0].type.name;
+        console.log(cType);
+
+
+        choiseIcon.src = choiseJson.sprites.back_default;
+        choiseName.textContent = `${choiseJson.name.toUpperCase()}!`;
+        choiseType.textContent = choiseJson.types[0].type.name;
+
+        choisePokemon.appendChild(choiseIcon);
+        choisePokemon.appendChild(choiseName);
+        choisePokemon.appendChild(choiseType);
+
+        if(cType === 'grass'){
+            choisePoke.style.color = 'green';
+        } else if (cType === 'fire'){
+            choisePoke.style.color = 'red';
+        } else if (cType === 'water'){
+            choisePoke.style.color = 'blue';
+        } else {
+            choisePoke.style.cololr = 'black';
+        }
+    })
+
     const randomNumArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let randomNumber = randomNumArr[Math.floor(Math.random()*randomNumArr.length)];
     // console.log(randomNumber);
-    
+
     fetch(`${baseURL}${randomNumber}`)
     .then(function(randomResults){
         return randomResults.json();
     })
     .then(function(randomJson){
-        
+        // console.log(randomJson);
+
         let randomIcon = document.createElement('img');
         let randomName = document.createElement('h2');
         let randomType = document.createElement('p');
-        let myChoise = document.getElementById('myChoise');
-        let pokemonChoise = document.getElementById('pokemonChoise');
-
+        
         let rType = randomJson.types[0].type.name;
-
+        
         randomIcon.src = randomJson.sprites.front_default;
-        randomName.textContent = randomJson.name.toUpperCase();
+        randomName.textContent = `${randomJson.name.toUpperCase()}!`;
         randomType.textContent = randomJson.types[0].type.name;
 
-        myChoise.innerHTML = pokemonChoise.options[pokemonChoise.selectedIndex].text;
-        randomPoke.appendChild(randomIcon)
-        randomPoke.appendChild(randomName);
-        randomPoke.appendChild(randomType);
+        randomPokemon.appendChild(randomIcon)
+        randomPokemon.appendChild(randomName)
+        randomPokemon.appendChild(randomType)
 
         if(rType === 'grass'){
             randomPoke.style.color = 'green';
