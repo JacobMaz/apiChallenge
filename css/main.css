@@ -1,8 +1,9 @@
 @import 'pokeList.css';
 @import 'header.css';
+@import 'pokeRPS.css';
 
 #bigBox {
     height: 70em;
-    background-image: url('../assets/background.jpg');
+    background-image: url('../assets/naturebackdrop.jpg');
     background-size: cover;
 }
