@@ -1,0 +1,7 @@
+#pokeListItem {
+    background-image: url('../assets/bwpokeball.jpg');
+    background-size: cover;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px gray;
+}

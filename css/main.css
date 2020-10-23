@@ -1,0 +1,8 @@
+@import 'pokeList.css';
+@import 'header.css';
+
+#bigBox {
+    height: 70em;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+}

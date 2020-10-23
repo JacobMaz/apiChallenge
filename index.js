@@ -16,14 +16,17 @@ fetch(`${baseURL}${p}`)
 
     let pokemonName = pokeName.charAt(0).toUpperCase()+pokeName.slice(1);
 
+    let pokemonIcon = document.createElement('img');
     let pokemon = document.createElement('li');
     let pokemonType = document.createElement('p');
     let pokemonIdNum = document.createElement('p');
-    
-
-    let pokemonRPS = document.getElementById('pokemonChoise')
+    let pokemonRPS = document.getElementById('pokemonChoise');
     let pokemonRPSopt = document.createElement('option');
 
+    pokemon.classList.add('list-group-item');
+    pokemon.setAttribute('id', 'pokeListItem');
+
+    pokemonIcon.src = pokeIcon;
     pokemon.innerText = pokemonName;
     pokemonType.innerText = `Main Type: ${pokeType.toUpperCase()}`;
     pokemonIdNum.innerText = `ID: #${pokeIdNum}`;
@@ -31,13 +34,11 @@ fetch(`${baseURL}${p}`)
     pokemonRPSopt.innerText = `${pokeName.toUpperCase()}!`;
 
     pokemonList.appendChild(pokemon);
-    
+    pokemon.appendChild(pokemonIcon)
     pokemon.appendChild(pokemonIdNum);
     pokemon.appendChild(pokemonType);
 
     pokemonRPS.appendChild(pokemonRPSopt);
-
-    pokemon.style.listStyleImage = `url(${pokeIcon})`;
     
     if(pokeType === 'grass'){
         pokemon.style.color = 'green';
