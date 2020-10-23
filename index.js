@@ -5,10 +5,11 @@ for(p = 1; p <= 9; p++){
     // console.log(p)
 fetch(`${baseURL}${p}`)
 .then(function(response){
+    // console.log(response.json())
     return response.json();
 })
 .then(function(json){
-    // console.log(json.sprites.front_default);
+    console.log(json);
     let pokeIdNum = json.id
     let pokeName = json.name;
     let pokeType = json.types[0].type.name;
@@ -117,6 +118,7 @@ function pokemonBattle(e) {
         let cType = choiceJson.types[0].type.name;
         // console.log(cType);
 
+        choiceIcon.setAttribute('id', 'choicePokemonID')
 
         choiceIcon.src = choiceJson.sprites.back_default;
         choiceName.textContent = `${choiceJson.name.toUpperCase()}!`;
@@ -127,7 +129,7 @@ function pokemonBattle(e) {
         choicePokemon.appendChild(choiceType);
 
         if(cType === 'grass'){
-            choicePoke.style.color = 'green';
+            choicePoke.style.color = 'lightgreen';
         } else if (cType === 'fire'){
             choicePoke.style.color = 'red';
         } else if (cType === 'water'){

@@ -1,0 +1,28 @@
+#pokeVSpoke {
+    background-color: gray;
+    height: 20em;
+    width: 37em;
+    grid-column-start: 33;
+    grid-row-start: 18;
+    display: grid;
+        grid-template: repeat(auto-fill, 1em)/repeat(auto-fill, 1em);
+}
+
+#choicePokemon {
+    background-color: black;
+    height: 10em;
+    width: 20em;
+    /* grid-column-start:; */
+    grid-row-start: 11;
+    display: grid;
+        grid-template: repeat(auto-fill, 0.5em)/repeat(auto-fill, 0.5em);
+}
+
+#randomPokemon {
+    background-color: white;
+        height: 10em;
+        width: 20em;
+        grid-column-start: 18;
+        display: grid;
+            grid-template: repeat(auto-fill, 0.5em)/repeat(auto-fill, 0.5em);
+}

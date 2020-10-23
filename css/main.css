@@ -1,6 +1,7 @@
 @import 'pokeList.css';
 @import 'header.css';
 @import 'pokeRPS.css';
+@import 'pokeBattle.css';
 
 #bigBox {
     height: 70em;
