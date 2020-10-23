@@ -54,13 +54,13 @@ fetch(`${baseURL}${p}`)
 
 const pokeBattleBtn = document.getElementById('iChooseYou');
 const randomPoke = document.getElementById('randomPokemon');
-const choisePoke = document.getElementById('choisePokemon')
+const choicePoke = document.getElementById('choicePokemon')
 
 pokeBattleBtn.addEventListener('click', pokemonBattle);
 
 function pokemonBattle(e) {
-    while (choisePoke.firstChild){
-        choisePoke.removeChild(choisePoke.firstChild);
+    while (choicePoke.firstChild){
+        choicePoke.removeChild(choicePoke.firstChild);
     } while (randomPoke.firstChild){
         randomPoke.removeChild(randomPoke.firstChild);
     }
@@ -103,36 +103,36 @@ function pokemonBattle(e) {
     // console.log(c)
 
     fetch(`${baseURL}${c}`)
-    .then(function(choiseResults){
-        return choiseResults.json();
+    .then(function(choiceResults){
+        return choiceResults.json();
     })
-    .then(function(choiseJson){
-        // console.log(choiseJson.sprites.back_default);
+    .then(function(choiceJson){
+        // console.log(choiceJson.sprites.back_default);
         
-        let choiseIcon = document.createElement('img');
-        let choiseName = document.createElement('h2');
-        let choiseType = document.createElement('p');
+        let choiceIcon = document.createElement('img');
+        let choiceName = document.createElement('h2');
+        let choiceType = document.createElement('p');
 
-        let cType = choiseJson.types[0].type.name;
-        console.log(cType);
+        let cType = choiceJson.types[0].type.name;
+        // console.log(cType);
 
 
-        choiseIcon.src = choiseJson.sprites.back_default;
-        choiseName.textContent = `${choiseJson.name.toUpperCase()}!`;
-        choiseType.textContent = choiseJson.types[0].type.name;
+        choiceIcon.src = choiceJson.sprites.back_default;
+        choiceName.textContent = `${choiceJson.name.toUpperCase()}!`;
+        choiceType.textContent = choiceJson.types[0].type.name;
 
-        choisePokemon.appendChild(choiseIcon);
-        choisePokemon.appendChild(choiseName);
-        choisePokemon.appendChild(choiseType);
+        choicePokemon.appendChild(choiceIcon);
+        choicePokemon.appendChild(choiceName);
+        choicePokemon.appendChild(choiceType);
 
         if(cType === 'grass'){
-            choisePoke.style.color = 'green';
+            choicePoke.style.color = 'green';
         } else if (cType === 'fire'){
-            choisePoke.style.color = 'red';
+            choicePoke.style.color = 'red';
         } else if (cType === 'water'){
-            choisePoke.style.color = 'blue';
+            choicePoke.style.color = 'blue';
         } else {
-            choisePoke.style.cololr = 'black';
+            choicePoke.style.cololr = 'black';
         }
     })
 
