@@ -118,18 +118,23 @@ function pokemonBattle(e) {
         let cType = choiceJson.types[0].type.name;
         // console.log(cType);
 
-        choiceIcon.setAttribute('id', 'choicePokemonID')
+        choiceIcon.setAttribute('id', 'choicePokemonID');
+        choiceName.setAttribute('id', 'choiceNameTitle');
+        choiceType.setAttribute('id', 'rpsChoiceType');
+
 
         choiceIcon.src = choiceJson.sprites.back_default;
         choiceName.textContent = `${choiceJson.name.toUpperCase()}!`;
         choiceType.textContent = choiceJson.types[0].type.name;
+        RPSchoiceType = choiceJson.types[0].type.name;
+        choiceType.textContent = RPSchoiceType.charAt().toUpperCase()+RPSchoiceType.slice(1);
 
         choicePokemon.appendChild(choiceIcon);
         choicePokemon.appendChild(choiceName);
         choicePokemon.appendChild(choiceType);
 
         if(cType === 'grass'){
-            choicePoke.style.color = 'lightgreen';
+            choicePoke.style.color = 'green';
         } else if (cType === 'fire'){
             choicePoke.style.color = 'red';
         } else if (cType === 'water'){
@@ -155,10 +160,15 @@ function pokemonBattle(e) {
         let randomType = document.createElement('p');
         
         let rType = randomJson.types[0].type.name;
+
+        randomIcon.setAttribute('id', 'randomPokemonID');
+        randomName.setAttribute('id', 'randomNameTitle');
+        randomType.setAttribute('id','rpsRandoType');
         
         randomIcon.src = randomJson.sprites.front_default;
         randomName.textContent = `${randomJson.name.toUpperCase()}!`;
-        randomType.textContent = randomJson.types[0].type.name;
+        RPSrandomType = randomJson.types[0].type.name;
+        randomType.textContent = RPSrandomType.charAt().toUpperCase()+RPSrandomType.slice(1);
 
         randomPokemon.appendChild(randomIcon)
         randomPokemon.appendChild(randomName)

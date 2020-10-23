@@ -10,10 +10,10 @@
 
 #choicePokemon {
     /* background-color: black; */
-    height: 10em;
-    width: 20em;
-    grid-row-start: 11;
-    grid-column-start: 7;
+    height: 12em;
+    width: 15em;
+    grid-row-start: 9;
+    grid-column-start: 5;
     display: grid;
         grid-template: repeat(auto-fill, 0.5em)/repeat(auto-fill, 0.5em);
 }
@@ -21,7 +21,7 @@
 #randomPokemon {
     /* background-color: white; */
         height: 10em;
-        width: 20em;
+        width: 15em;
         grid-column-start: 18;
         display: grid;
             grid-template: repeat(auto-fill, 0.5em)/repeat(auto-fill, 0.5em);
@@ -29,8 +29,14 @@
 
 #yourPokeball {
     height: 7em;
-    grid-row-start: 7;
-    grid-column-start: 4;
+    grid-row-start: 9;
+    grid-column-start: 6;
+}
+
+#opponentPokeball {
+    height: 7em;
+    grid-row-start: 15;
+    grid-column-start: 3;
 }
 
 #yourPokemonTitle {
@@ -41,6 +47,45 @@
     grid-row-start: 2;
 }
 
+#randomPokemonTitle {
+    color: yellow;
+    text-shadow: 2px 2px blue;
+    font-weight: 700;
+    width: 11em;
+    grid-row-start: 9;
+}
+
 #choicePokemonID {
     height: 10em;
+    grid-row-start: 5;
+    grid-column-start: 4;
+}
+
+#randomPokemonID {
+    height: 10em;
+    grid-row-start: 14;
+}
+
+#choiceNameTitle {
+    grid-row-start: 0;
+    text-shadow: 1px 1px lightgray;
+    margin: 0;
+}
+
+#randomNameTitle {
+    grid-row-start: 10;
+    text-shadow: 1px 1px lightgray;
+}
+
+#rpsChoiceType {
+    text-shadow: 1px 1px lightgray;
+    grid-row-start: 5;
+    font-size: 25px;
+}
+
+#rpsRandoType {
+    font-size: 25px;
+    text-shadow: 1px 1px lightgray;
+    grid-row-start: 21;
+    grid-column-start: 20;
 }
