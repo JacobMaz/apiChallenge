@@ -1,0 +1,118 @@
+#elementKey {
+    /* background-color: gray; */
+    height: 15em;
+    width: 15em;
+    display: grid;
+        grid-template: repeat(auto-fill, 0.5em)/repeat(auto-fill, 0.5em);
+    grid-row-start: 8;
+    grid-column-start: 28;
+}
+
+#fireIcon {
+    /* background-color: lightgray; */
+    height:3em;
+    grid-row-start: 3;
+    grid-column-start: 13;
+}
+
+#grassIcon {
+    height:3em;
+    grid-row-start: 18;
+    grid-column-start: 20;
+}
+
+#waterIcon {
+    height:3em;
+    grid-row-start: 18;
+    grid-column-start: 3;
+}
+
+#fireArrow {
+    /* background-color: black; */
+    height: 4em;
+    width: 2em;
+    display: grid;
+        grid-template: repeat(auto-fill, 0.1em)/repeat(auto-fill, 0.1em);
+    grid-row-start: 9;
+    grid-column-start: 19;
+    transform: rotate(10deg);
+}
+
+#triArrowF {
+    height: 0;
+    width: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-bottom: 1em solid red;
+    transform: rotate(149deg);
+    grid-row-start: 28;
+    grid-column-start: 2;
+}
+
+#recArrowF {
+    background-color: red;
+    height: 3em;
+    width: 0.5em;
+    grid-row-start: 4;
+    transform: rotate(-33deg);
+}
+
+#grassArrow {
+    /* background-color: black; */
+    height: 4em;
+    width: 2em;
+    display: grid;
+        grid-template: repeat(auto-fill, 0.1em)/repeat(auto-fill, 0.1em);
+    grid-row-start: 19;
+    grid-column-start: 12;
+    transform: rotate(125deg);
+}
+
+#triArrowG {
+    height: 0;
+    width: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-bottom: 1em solid green;
+    transform: rotate(149deg);
+    grid-row-start: 28;
+    grid-column-start: 2;
+}
+
+#recArrowG {
+    background-color: green;
+    height: 3em;
+    width: 0.5em;
+    grid-row-start: 4;
+    transform: rotate(-33deg);
+}
+
+#waterArrow {
+    /* background-color: black; */
+    height: 4em;
+    width: 2em;
+    display: grid;
+        grid-template: repeat(auto-fill, 0.1em)/repeat(auto-fill, 0.1em);
+    grid-row-start: 8;
+    grid-column-start: 8;
+    transform: rotate(250deg);
+}
+
+#triArrowW {
+    height: 0;
+    width: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-bottom: 1em solid blue;
+    transform: rotate(149deg);
+    grid-row-start: 28;
+    grid-column-start: 2;
+}
+
+#recArrowW {
+    background-color: blue;
+    height: 3em;
+    width: 0.5em;
+    grid-row-start: 4;
+    transform: rotate(-33deg);
+}

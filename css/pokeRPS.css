@@ -51,11 +51,13 @@
     width: 150px;
     border: 2px solid black;
     border-radius: 50%;
-    background-image: linear-gradient(to bottom, red 0%, red 50%, white 50%, white 100%);
-    font-size: 20px;
+    background-image: url('../assets/pokeballIChooseYou.png');
+    background-size: contain;
+    font-size: 15px;
     text-align: center;
     grid-row-start: 22;
     grid-column-start: 4;
+    padding-bottom: 4em;
     /* padding: 0px 30px 0px 30px; */
     /* word-wrap: break-word; */
 }
