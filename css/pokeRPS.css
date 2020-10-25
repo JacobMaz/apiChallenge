@@ -15,6 +15,14 @@
     grid-row-start: 2;
 }
 
+#arenaInfo {
+    color: yellow;
+    text-shadow: 1px 1px blue;
+    width: 20em;
+    grid-row-start: 5;
+    grid-column-start: 35;
+}
+
 #pokemonRPS {
     /* background-color: gray; */
     width: 15em;
